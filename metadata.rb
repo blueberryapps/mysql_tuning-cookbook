@@ -27,7 +27,7 @@ description <<-EOS
 Tries to create MySQL configuraiton better suited for your system.
 EOS
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.9.0' # WiP
+version '0.8.0' # WiP
 
 if respond_to?(:source_url)
   source_url "https://github.com/zuazo/#{name}-cookbook"
@@ -35,8 +35,6 @@ end
 if respond_to?(:issues_url)
   issues_url "https://github.com/zuazo/#{name}-cookbook/issues"
 end
-
-chef_version '>= 12' if respond_to?(:chef_version)
 
 supports 'amazon'
 supports 'centos'
@@ -48,9 +46,9 @@ supports 'redhat'
 supports 'scientific'
 supports 'ubuntu'
 
-depends 'mysql', '~> 8.0'
-depends 'ohai', '~> 5.0'
-depends 'mysql2_chef_gem', '~> 2.0'
+depends 'mysql', '~> 8.2'
+depends 'ohai', '>= 4.0'
+depends 'mysql2_chef_gem', '~> 1.0'
 
 recipe 'mysql_tuning::default', 'Creates MySQL configuration files.'
 recipe 'mysql_tuning::ohai_plugin', 'Enables MySQL ohai plugin.'
